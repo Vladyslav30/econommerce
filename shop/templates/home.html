@@ -5,13 +5,41 @@
 
 
 {% block title %}
-    Home
 {% endblock %}
 {% block content %}
 <div class="container-fluid">
     <div class="row">
-        <img  src="{% static 'shop.jpg' %]">
+        <img  src="{% static 'shop.png' %}">
     </div>
 
 </div>
+<div class="py-4">
+<h1 class="text-capitalize font-weight-bold text-center">Our products</h1>
+</div>
+<div class="container">
+  <div class="row">
+    {% for product in "aaaaaaaa" %}
+    <div class="col-md-3 mb-4">
+      <div class="card" style="width: 18rem;">
+        <img src="{% static 'images/beautiy.png' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Beautiy</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">An item</li>
+          <li class="list-group-item">A second item</li>
+          <li class="list-group-item">A third item</li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    </div>
+    </div>
+
 {% endblock %}
+
