@@ -8,6 +8,11 @@ class Category(models.Model):
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to='categories', blank=True)
 
+    class Meta:
+        ordering = ('name',)
+        verbose_name_plural = 'Categories'
+
+
     def __str__(self):
         return self.name
 
@@ -22,6 +27,10 @@ class Product(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ('name',)
+        verbose_name_plural = 'Products'
 
     def __str__(self):
         return self.name

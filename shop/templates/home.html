@@ -19,17 +19,17 @@ Shop
 </div>
 <div class="container">
   <div class="row">
-    {% for product in "aaaaaaaa" %}
+    {% for product in products %}
     <div class="col-md-3 mb-4">
       <div class="card" style="width: 18rem;">
-        <img src="{% static 'images/beautiy.png' %}" class="card-img-top" alt="...">
+        <img src="{{product.image.url}}" class="card-img-top" alt="{{product.name}}">
         <div class="card-body">
-          <h5 class="card-title">Beautiy</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h5 class="card-title">{{product.name}}</h5>
+          <p class="card-text">{{product.description}}</p>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">An item</li>
-          <li class="list-group-item">A second item</li>
+          <li id="price" class="list-group-item">{{product.price}} $</li>
+          <li class="list-group-item">{{product.category}}</li>
           <li class="list-group-item">A third item</li>
         </ul>
         <div class="card-body">
