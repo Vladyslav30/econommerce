@@ -132,6 +132,10 @@ STATICFILES_DIRS = [
 ]
 # in terminal command line: python manage.py collectstatic
 
+MEDIA_URL = 'media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static', 'media')
+
 
 
 
