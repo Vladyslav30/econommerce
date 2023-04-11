@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+
+{% block title %}
+Cart
+{% endblock %}
+{% block content %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+    <div class="text-center">
+        <br>
+        <div class="text-center product_title" style="font-size: 30px;">
+            Shopping Cart
+        </div>
+    </div>
+    <div class="row mx-auto">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 text-center">
+        <table class="table cart-table">
+            <thead class="cart-thead">
+                <tr>
+                    <th colspan="4">Your Items</th>
+                </tr>
+            </thead>
+            {% for item in '123' %}
+            <tr>
+                <td>
+                    <a href="">
+                        <img src="{% static 'images/shop.jpg' %}" alt="" width="100" height="100">
+                    </a>
+                </td>
+                <td class="text-left">
+                    Shop
+                <br>
+                SKU: 123
+                <br>
+                Unit Price: 123$
+                <br>
+                Quantity: 3*20$
+                </td>
+                <td>
+                    60$
+                </td>
+                <td>
+                    <div>
+                        <a href="">
+                            <span class="material-symbols-outlined text-success">
+                                add_circle
+                            </span>
+                        </a>
+                        <a href="">
+                            <span class="material-symbols-outlined text-danger">
+                                remove_circle
+                            </span>
+                        </a>
+                        <a href="">
+                             <span class="material-symbols-outlined text-danger">
+                            cancel
+                        </span>
+                        </a>
+                        </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 text-center">
+        <table class="table cart-table">
+            <thead class="cart-thead">
+                <tr>
+                    <th colspan="4">Check Out</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Please check your cart before payment
+                    </td>
+                </tr>
+                <tr class="text-left">
+                    <td>
+                        Your total bill is <strong>60$</strong>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="mx-auto">
+            <a href="">
+                <button class="btn btn-lg btn-block bg-dark text-white">Back to products</button>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
