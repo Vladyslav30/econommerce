@@ -9,9 +9,10 @@
 LogIn
 {% endblock %}
 {% block content %}
+{% load crispy_forms_tags %}
     <div>
         {% if not form.is_valid %}
-            <div>
+            <div class="form-container">
                 <br>
                 <h1 class="text-center product_title">
                     Create a new account
@@ -22,7 +23,7 @@ LogIn
                     <p>
                         Please fill in the form below to create an account.
                     </p>
-                    <form action="post">
+                    <form method="post">
                         {% csrf_token %}
                         <p>
                             {{ form }}
@@ -35,9 +36,9 @@ LogIn
             </div>
 
         {% else %}
-            <div>
+            <div class="mx-auto text-center">
                 <br>
-                <h1 class="text-center product_title">
+                <h1 class="product_title text-center">
                     Your account has been created successfully
                 </h1>
                 <br>
@@ -51,12 +52,12 @@ LogIn
                         <button class="btn btn-primary">
                             Back to Home
                         </button>
+                    </a>
                 </div>
             </div>
 
         {% endif %}
     </div>
-
 
 {% endblock %}
 

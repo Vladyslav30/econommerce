@@ -38,3 +38,44 @@ body{
     color: red;
     font-weight: bold;
 }
+
+/* Style the form container */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Style the form */
+form {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Style the form fields */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+/* Style the form field labels */
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Style the form field inputs */
+.form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Style the form field errors */
+.error {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+}
+
