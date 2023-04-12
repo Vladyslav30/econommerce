@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+
+{% block title %}
+Log In
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <br>
+        <h1 class="text-center product_title">
+            LogIn or Create an account
+        </h1>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-lg-6 text-center custom_div">
+                <br>
+                <h2 class="product_title">
+                    New Customer
+                </h2>
+                <br>
+                <a href="{% url 'signup' %}">
+                    <button class="btn btn-primary">
+                        Create an account
+                    </button>
+                </a>
+                <div class="col-12 col-sm-12 col-lg-6 text-center custom_div">
+                    <br>
+                    <h2 class="product_title">
+                        Registered Users Only
+                    </h2>
+                    <br>
+                    <form method="post">
+                        {% csrf_token %}
+                        <p>
+                            {{ form }}
+                        </p>
+                        <button type="submit" class="btn btn-primary">
+                            Log In
+                        </button>
+                    </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

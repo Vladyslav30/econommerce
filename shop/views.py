@@ -5,6 +5,8 @@ from django.http import HttpResponse
 from .models import Product, Category, Cart, CartItem
 from django.contrib.auth.models import User, Group
 from .forms import SignUpForm
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login, authenticate, logout
 
 
 # Create your views here.
@@ -95,5 +97,26 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
+
+def signin(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request=request, data=request.POST)
+        if form.is_valid():
+            username = request.POST['username']
+            password = request.POST['password']
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('home')
+            else:
+                return redirect('signup')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'signin.html', {'form': form})
+
+
+def signout(request):
+    logout(request)
+    return redirect('signin')
 
 
