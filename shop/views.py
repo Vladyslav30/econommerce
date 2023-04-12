@@ -1,7 +1,10 @@
+from django.contrib.auth import login, authenticate
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import Product, Category, Cart, CartItem
+from django.contrib.auth.models import User, Group
+from .forms import SignUpForm
 
 
 # Create your views here.
@@ -79,5 +82,19 @@ def remove_cart_item(request, product_id):
     cart_item = CartItem.objects.get(product=product, cart=cart)
     cart_item.delete()
     return redirect('cart_detail')
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('home')
+    else:
+        form = SignUpForm()
+    return render(request, 'signup.html', {'form': form})
 
 

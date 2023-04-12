@@ -34,3 +34,7 @@ body{
     color: red;
 }
 
+.errorlist li{
+    color: red;
+    font-weight: bold;
+}

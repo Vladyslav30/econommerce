@@ -1,0 +1,63 @@
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+
+{% block title %}
+LogIn
+{% endblock %}
+{% block content %}
+    <div>
+        {% if not form.is_valid %}
+            <div>
+                <br>
+                <h1 class="text-center product_title">
+                    Create a new account
+                </h1>
+                <br>
+                <div class="col-9 col-sm-9 col-md-6 col-lg-5 mx-auto">
+                    <br>
+                    <p>
+                        Please fill in the form below to create an account.
+                    </p>
+                    <form action="post">
+                        {% csrf_token %}
+                        <p>
+                            {{ form }}
+                        </p>
+                        <button type="submit" class="btn btn-primary">
+                            Sign Up
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        {% else %}
+            <div>
+                <br>
+                <h1 class="text-center product_title">
+                    Your account has been created successfully
+                </h1>
+                <br>
+                <div>
+                    <br>
+                    <p>
+                        Please check your email to activate your account.
+                    </p>
+                    <br>
+                    <a href="{% url 'home' %}">
+                        <button class="btn btn-primary">
+                            Back to Home
+                        </button>
+                </div>
+            </div>
+
+        {% endif %}
+    </div>
+
+
+{% endblock %}
+
+
