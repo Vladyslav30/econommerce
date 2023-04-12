@@ -51,7 +51,7 @@ Cart
                 <br>
                 Unit Price: {{cart_item.product.price}}
                 <br>
-                Quantity: {{cart_item.quantity}}*{{cart_item.product.price}}
+                Quantity: {{cart_item.quantity}}*{{cart_item.product.price}} $
                 </td>
                 <td>
                     ${{cart_item.sub_total}}
@@ -63,39 +63,30 @@ Cart
                                 add_circle
                             </span>
                         </a>
-
-                        <a href="">
+                        <a href="{% url 'remove_cart' cart_item.product.id %}">
                             <span class="material-symbols-outlined text-danger">
                                 remove_circle
                             </span>
                         </a>
-
-
-
-                        <a href="">
+                        <a href="{% url 'remove_cart_item' cart_item.product.id %}">
                              <span class="material-symbols-outlined text-danger">
                             cancel
                         </span>
                         </a>
-
                         </td>
                 {% else %}
                 <td>
-                        <a href="">
+                        <a href="{% url 'remove_cart' cart_item.product.id %}">
                             <span class="material-symbols-outlined text-danger">
                                 remove_circle
                             </span>
                         </a>
-
-
-
-                        <a href="">
+                        <a href="{% url 'remove_cart_item' cart_item.product.id %}">
                              <span class="material-symbols-outlined text-danger">
                             cancel
                         </span>
                         </a>
-
-                        </div>
+                        </td>
                 {% endif %}
                 <td>
 

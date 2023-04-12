@@ -18,6 +18,12 @@
             </li>
             <li class="nav-item"><a class="nav-link text-white text-uppercase font-weight-bolt px-3" href="">Contacts</a></li>
             <li class="nav-item"><a class="nav-link text-white text-uppercase font-weight-bolt px-3" href="">About</a></li>
+            {% if item_count > 0 %}
+            <li class="nav-item"><a class="nav-link text-white text-uppercase font-weight-bolt px-3" href="{% url 'cart_detail' %}">
+                <span class="material-symbols-outlined text-success">
+                                add_circle
+                            </span>({{item_count}})</a></li>
+            {% endif %}
         </ul>
         <form class="from-inline ms-auto">
             <div class="input-group">
