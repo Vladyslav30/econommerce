@@ -14,8 +14,11 @@
         <h1 class="product_title">{{product.name}}</h1>
         <p id="price" class="fst-italic fw-bold">{{product.price}} $</p>
         <p class="product_desc">{{product.description}}</p>
-        <p class="product_text">{% if product.stock <= 0 %} Out of stock{% else %}
-          <a href="">Add to cart</a>{% endif %}
+        {% if product.stock <= 0 %}
+        <p class="product_text">Out of stock</p>
+        {% else %}
+          <a href="{% url 'add_cart' product.id %}" class="btn btn-primary">Add to cart</a>
+        {% endif %}
         </p>
       </div>
     </div>
